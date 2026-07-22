@@ -1,0 +1,39 @@
+docs/superpowers/specs/2026-07-22-vite-deployment-metadata-design.md
+  s_5b9a711a2ef07d::t_72ff6b7c96a934 105,109,112,115,120,123,126,129,132,156-160,163,191,199,203,212,214-215,217,221
+metadata/draft/VDM0000/types.d.ts
+  s_5b9a711a2ef07d::t_f7908509a5080c 32
+metadata/proposed/VDM0001/types.d.ts
+  s_5b9a711a2ef07d::t_bcc12260d11846 1
+package.json
+  s_5b9a711a2ef07d::t_a000a676694277 16
+packages/deployment-metadata-helper/package.json
+  s_5b9a711a2ef07d::t_d967991bc78e37 5-7,24-26
+packages/deployment-metadata-helper/src/index.ts
+  s_5b9a711a2ef07d::t_a557cdd9f9f818 12,35
+packages/deployment-metadata-helper/test/index.test.ts
+  s_5b9a711a2ef07d::t_d5fe7f2ce856d6 3,39,72,89
+packages/deployment-metadata-types/package.json
+  s_5b9a711a2ef07d::t_c4f79bd7694778 5-7
+pnpm-workspace.yaml
+  s_5b9a711a2ef07d::t_34823c214132ae 4-41
+tests/repository-structure.test.ts
+  s_5b9a711a2ef07d::t_091d83af33733b 46
+tests/type-exports.ts
+  s_5b9a711a2ef07d::t_9fe7dd16a0c607 7-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "eef7ca1f25afa1889e0d7e315869a11b60df87c2",
+  "prompts": {},
+  "sessions": {
+    "s_5b9a711a2ef07d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f889c-8be4-7ae1-aa91-8c00b30fc495",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
