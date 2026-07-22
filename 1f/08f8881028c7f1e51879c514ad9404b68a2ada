@@ -1,0 +1,19 @@
+pnpm-lock.yaml
+  s_5b9a711a2ef07d::t_23daa90e5617d8 28,30-31,1034-1036,1731,1741,1810,1821,1828,1838
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "1f08f8881028c7f1e51879c514ad9404b68a2ada",
+  "prompts": {},
+  "sessions": {
+    "s_5b9a711a2ef07d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f889c-8be4-7ae1-aa91-8c00b30fc495",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
