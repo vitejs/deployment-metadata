@@ -1,0 +1,26 @@
+{
+  "name": "@vitejs/deployment-metadata-helper",
+  "version": "0.0.0",
+  "description": "Vite participant discovery for deployment metadata.",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@vitejs/deployment-metadata-types": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=22.12.0 || ^24.0.0"
+  }
+}
