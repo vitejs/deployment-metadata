@@ -1,0 +1,19 @@
+docs/superpowers/plans/2026-07-23-maturity-jsdoc.md
+  s_5b9a711a2ef07d::t_82fb6023bfb779 32-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f311888094ac3a2fd74a3aabc6e79b29e48c5190",
+  "prompts": {},
+  "sessions": {
+    "s_5b9a711a2ef07d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f889c-8be4-7ae1-aa91-8c00b30fc495",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
