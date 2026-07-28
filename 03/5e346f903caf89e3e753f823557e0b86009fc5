@@ -1,0 +1,19 @@
+docs/superpowers/specs/2026-07-28-ci-and-preview-releases-design.md
+  s_4257a084e94cfd::t_a78ef646da44c1 1-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "035e346f903caf89e3e753f823557e0b86009fc5",
+  "prompts": {},
+  "sessions": {
+    "s_4257a084e94cfd": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa773-346a-7e93-b2fe-e0bb4394814d",
+        "model": "unknown"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
