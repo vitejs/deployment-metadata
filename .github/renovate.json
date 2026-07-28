@@ -6,6 +6,10 @@
   "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
+      "matchDepTypes": ["peerDependencies"],
+      "enabled": false
+    },
+    {
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "1440 minutes"
     }
