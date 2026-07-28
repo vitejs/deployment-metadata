@@ -1,0 +1,19 @@
+.github/workflows/ci.yml
+  s_9fba2dd23c5569::t_6e366d96cbfa31 38-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "287bda86faeb2658bb3fb9f4c811a514b00bd028",
+  "prompts": {},
+  "sessions": {
+    "s_9fba2dd23c5569": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa80b-ae50-7362-a675-eac531bce0d4",
+        "model": "unknown"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
