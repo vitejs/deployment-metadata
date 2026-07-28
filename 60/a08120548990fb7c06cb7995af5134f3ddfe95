@@ -1,0 +1,19 @@
+README.md
+  s_350f5d47d304c2::t_1ac23a42a2bd61 1-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "60a08120548990fb7c06cb7995af5134f3ddfe95",
+  "prompts": {},
+  "sessions": {
+    "s_350f5d47d304c2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa76f-c784-7d21-b2d8-607a6b70ed28",
+        "model": "unknown"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
