@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],
-      "enabled": false,
+      "enabled": false
     },
     {
       "matchDatasources": ["npm"],
