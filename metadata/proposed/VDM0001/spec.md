@@ -10,8 +10,7 @@ Defines a public deployment value and an ordered list of header or query carrier
 import type { RequestMetadata } from "@vitejs/deployment-metadata-types";
 
 const metadata: RequestMetadata = {
-  id: "deployment-id",
-  kind: "deployment.requestMetadata",
+  id: "VDM0001",
   version: 1,
   value: "abc123",
   carriers: [
@@ -27,7 +26,7 @@ Deployment providers know public values used for features such as skew protectio
 
 # Detailed design
 
-The kind is `deployment.requestMetadata` and the version is `1`. `value` is a public string or a zero-argument synchronous/asynchronous producer. `carriers` is non-empty and ordered by producer preference. Header carriers preserve the given HTTP field name. Query carriers set or replace the named URL search parameter rather than appending a duplicate.
+`value` is a public string or a zero-argument synchronous/asynchronous producer. `carriers` is non-empty and ordered by producer preference. Header carriers preserve the given HTTP field name. Query carriers set or replace the named URL search parameter rather than appending a duplicate.
 
 Consumers decide whether and where they can apply a carrier. They must not add metadata to arbitrary user requests or cross-origin requests. This standard defines no URL, header, or request mutation utility.
 
