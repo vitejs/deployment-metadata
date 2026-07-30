@@ -1,6 +1,8 @@
 export type {
-  DeploymentMetadata,
+  AbstractDeploymentMetadata,
   DeploymentMetadataBase,
+  DeploymentMetadataMap,
+  DeploymentMetadata,
   DeploymentParticipant,
   MaybePromise,
 } from "../../../metadata/draft/VDM0000/types.js";

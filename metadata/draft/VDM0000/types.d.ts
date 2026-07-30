@@ -26,7 +26,25 @@ export interface DeploymentMetadataBase {
  *
  * **VDM0000 — Draft Standard (DS).**
  */
-export type DeploymentMetadata = Readonly<DeploymentMetadataBase & Record<string, unknown>>;
+export type AbstractDeploymentMetadata = Readonly<DeploymentMetadataBase & Record<string, unknown>>;
+
+/**
+ * The map of all deployment metadata.
+ *
+ * The key is the id of the metadata standard, and the value is the metadata record.
+ *
+ * **VDM0000 — Draft Standard (DS).**
+ */
+export interface DeploymentMetadataMap {
+  // [id]: DeploymentMetadataBase & { ... };
+}
+
+/**
+ * The union of all deployment metadata records.
+ *
+ * **VDM0000 — Draft Standard (DS).**
+ */
+export type DeploymentMetadata = DeploymentMetadataMap[keyof DeploymentMetadataMap];
 
 /**
  * A build participant that publishes deployment metadata.
