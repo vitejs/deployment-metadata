@@ -15,7 +15,7 @@ export type RequestMetadataCarrier =
  * **VDM0001 — Proposed Standard (PS).**
  */
 export type RequestMetadata = DeploymentMetadata & {
-  kind: "deployment.requestMetadata";
+  id: "VDM0001";
   version: 1;
   value: string | (() => MaybePromise<string>);
   carriers: readonly RequestMetadataCarrier[];
