@@ -1,4 +1,8 @@
-import type { DeploymentMetadataBase, MaybePromise, DeploymentMetadataMap } from "../../draft/VDM0000/types.js";
+import type {
+  DeploymentMetadataBase,
+  MaybePromise,
+  DeploymentMetadataMap,
+} from "../../draft/VDM0000/types.js";
 
 /**
  * A transport understood by the metadata producer, in preference order.
