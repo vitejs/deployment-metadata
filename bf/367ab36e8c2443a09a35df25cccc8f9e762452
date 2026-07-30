@@ -1,0 +1,31 @@
+metadata/draft/VDM0000/types.d.ts
+  s_a2b6ccd4b3bbd6::t_145c8a5b72b765 29-47
+metadata/proposed/VDM0001/types.d.ts
+  s_f85e2846d9b173::t_e526d118ee745f 1,17,23-28
+packages/deployment-metadata-types/src/index.ts
+  s_f85e2846d9b173::t_b8fd76f1e5d2e5 2,4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "bf367ab36e8c2443a09a35df25cccc8f9e762452",
+  "prompts": {},
+  "sessions": {
+    "s_a2b6ccd4b3bbd6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb0e3-f563-7483-877f-1beccd0070e6",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    },
+    "s_f85e2846d9b173": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb0d7-7fbe-7f72-a475-7147bab2c03d",
+        "model": "unknown"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
