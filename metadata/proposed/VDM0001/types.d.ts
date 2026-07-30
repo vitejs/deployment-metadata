@@ -1,4 +1,8 @@
-import type { DeploymentMetadata, MaybePromise } from "../../draft/VDM0000/types.js";
+import type {
+  DeploymentMetadataBase,
+  MaybePromise,
+  DeploymentMetadataMap,
+} from "../../draft/VDM0000/types.js";
 
 /**
  * A transport understood by the metadata producer, in preference order.
@@ -14,9 +18,15 @@ export type RequestMetadataCarrier =
  *
  * **VDM0001 — Proposed Standard (PS).**
  */
-export type RequestMetadata = DeploymentMetadata & {
+export type RequestMetadata = DeploymentMetadataBase & {
   id: "VDM0001";
   version: 1;
   value: string | (() => MaybePromise<string>);
   carriers: readonly RequestMetadataCarrier[];
 };
+
+declare module "@vitejs/deployment-metadata-types" {
+  interface DeploymentMetadataMap {
+    VDM0001: RequestMetadata;
+  }
+}
