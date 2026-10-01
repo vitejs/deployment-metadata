@@ -10,11 +10,11 @@
     "check": "pnpm format --check && pnpm lint"
   },
   "devDependencies": {
-    "@types/node": "^24.13.3",
-    "oxfmt": "^0.65.0",
-    "oxlint": "^1.80.0",
-    "oxlint-tsgolint": "^7.0.2001",
-    "tsdown": "^0.22.14",
+    "@types/node": "^24.19.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "tsdown": "^0.23.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.2"
   },
