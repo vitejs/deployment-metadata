@@ -21,6 +21,6 @@ See the [standards process](docs/process.md) for maturity requirements.
 ## I want to use the packages
 
 - [`@vitejs/deployment-metadata-types`](packages/deployment-metadata-types/) provides tool-agnostic TypeScript declarations for the metadata standards.
-- [`@vitejs/deployment-metadata-helper`](packages/deployment-metadata-helper/) helps Vite plugins advertise and discover deployment metadata participants.
+- [`@vitejs/shared-metadata-helper`](packages/shared-metadata-helper/) helps Vite plugins advertise and discover shared metadata participants.
 
 See each package’s README for installation and usage examples.

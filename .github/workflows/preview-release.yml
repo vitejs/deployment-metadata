@@ -40,4 +40,4 @@ jobs:
 
       - name: Publish preview release
         # zizmor: ignore[use-trusted-publishing]
-        run: pnpm dlx pkg-pr-new@0.0 publish --pnpm './packages/deployment-metadata-types' './packages/deployment-metadata-helper' --packageManager=pnpm,npm,yarn --commentWithDev
+        run: pnpm dlx pkg-pr-new@0.0 publish --pnpm './packages/deployment-metadata-types' './packages/shared-metadata-helper' --packageManager=pnpm,npm,yarn --commentWithDev

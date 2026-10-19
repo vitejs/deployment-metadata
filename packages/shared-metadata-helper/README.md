@@ -1,19 +1,22 @@
-# `@vitejs/deployment-metadata-helper`
+# `@vitejs/shared-metadata-helper`
 
-Advertise and discover raw deployment metadata participants in Vite 8.
+Advertise and discover raw shared metadata participants in Vite 8.
 
 ```ts
-import {
-  defineDeploymentParticipant,
-  getViteDeploymentParticipants,
-} from "@vitejs/deployment-metadata-helper";
+import { DeploymentParticipant } from "@vitejs/deployment-metadata-types";
+import { createSharedMetadataHelpers } from "@vitejs/shared-metadata-helper";
 import type { Plugin } from "vite";
+
+const {
+  defineSharedMetadataParticipant: defineDeploymentParticipant,
+  getSharedMetadataParticipants: getDeploymentParticipants,
+} = createSharedMetadataHelpers<DeploymentParticipant>("vite/deploymentMetadata");
 
 export function provider(): Plugin {
   return {
     name: "provider",
     api: {
-      "vite/deploymentMetadata": defineDeploymentParticipant({
+      ...defineDeploymentParticipant({
         id: "@example/provider",
         getMetadata: () => [],
       }),
@@ -25,7 +28,7 @@ export function consumer(): Plugin {
   return {
     name: "consumer",
     async config(config) {
-      const participants = await getViteDeploymentParticipants(config);
+      const participants = await getDeploymentParticipants(config);
       for (const participant of participants) {
         const metadata = await participant.getMetadata();
         // Interpret only recognized kind/version pairs.

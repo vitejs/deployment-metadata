@@ -1,7 +1,7 @@
 {
-  "name": "@vitejs/deployment-metadata-helper",
+  "name": "@vitejs/shared-metadata-helper",
   "version": "0.0.0",
-  "description": "Vite participant discovery for deployment metadata.",
+  "description": "Vite participant discovery for shared metadata.",
   "files": [
     "dist"
   ],
@@ -10,9 +10,6 @@
   "exports": "./dist/index.js",
   "scripts": {
     "build": "tsdown"
-  },
-  "dependencies": {
-    "@vitejs/deployment-metadata-types": "workspace:*"
   },
   "devDependencies": {
     "vite": "^8.3.1"

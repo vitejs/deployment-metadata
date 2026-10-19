@@ -1,19 +1,30 @@
 import { describe, expect, test, vi } from "vitest";
 import type { Plugin, ResolvedConfig, UserConfig } from "vite";
-import { defineDeploymentParticipant, getViteDeploymentParticipants } from "../src/index.js";
+import { createSharedMetadataHelpers } from "../src/index.js";
 
-describe("defineDeploymentParticipant", () => {
+type Participant = {
+  id: string;
+  getMetadata: () => unknown[];
+};
+const SCHEMA_KEY = "vite/deploymentMetadata";
+
+const {
+  defineSharedMetadataParticipant: defineDeploymentParticipant,
+  getSharedMetadataParticipants: getDeploymentParticipants,
+} = createSharedMetadataHelpers<Participant>(SCHEMA_KEY);
+
+describe("defineSharedMetadataParticipant", () => {
   test("returns the original participant", () => {
     const participant = {
       id: "@example/provider",
       getMetadata: vi.fn(() => []),
     };
 
-    expect(defineDeploymentParticipant(participant)).toBe(participant);
+    expect(defineDeploymentParticipant(participant)).toEqual({ [SCHEMA_KEY]: participant });
   });
 });
 
-describe("getViteDeploymentParticipants", () => {
+describe("getSharedMetadataParticipants", () => {
   test("returns participants in flat plugin order without resolving metadata", async () => {
     const getFirstMetadata = vi.fn(() => []);
     const first = defineDeploymentParticipant({
@@ -28,15 +39,18 @@ describe("getViteDeploymentParticipants", () => {
     const config: UserConfig = {
       plugins: [
         { name: "unrelated" },
-        { name: "first", api: { "vite/deploymentMetadata": first } } as Plugin,
+        { name: "first", api: first } as Plugin,
         {
           name: "second",
-          api: { "vite/deploymentMetadata": second },
+          api: second,
         } as Plugin,
       ],
     };
 
-    await expect(getViteDeploymentParticipants(config)).resolves.toEqual([first, second]);
+    await expect(getDeploymentParticipants(config)).resolves.toEqual([
+      first[SCHEMA_KEY],
+      second[SCHEMA_KEY],
+    ]);
     expect(getFirstMetadata).not.toHaveBeenCalled();
     expect(getSecondMetadata).not.toHaveBeenCalled();
   });
@@ -56,20 +70,23 @@ describe("getViteDeploymentParticipants", () => {
         Promise.resolve([
           {
             name: "first",
-            api: { "vite/deploymentMetadata": first },
+            api: first,
           } as Plugin,
           [
             null,
             {
               name: "second",
-              api: { "vite/deploymentMetadata": second },
+              api: second,
             } as Plugin,
           ],
         ]),
       ],
     };
 
-    await expect(getViteDeploymentParticipants(config)).resolves.toEqual([first, second]);
+    await expect(getDeploymentParticipants(config)).resolves.toEqual([
+      first[SCHEMA_KEY],
+      second[SCHEMA_KEY],
+    ]);
   });
 
   test("accepts an already-flat ResolvedConfig plugin list", async () => {
@@ -81,12 +98,12 @@ describe("getViteDeploymentParticipants", () => {
       plugins: [
         {
           name: "resolved",
-          api: { "vite/deploymentMetadata": participant },
+          api: participant,
         },
       ],
     } as unknown as ResolvedConfig;
 
-    await expect(getViteDeploymentParticipants(config)).resolves.toEqual([participant]);
+    await expect(getDeploymentParticipants(config)).resolves.toEqual([participant[SCHEMA_KEY]]);
   });
 
   test("preserves duplicate IDs and object identity", async () => {
@@ -100,18 +117,18 @@ describe("getViteDeploymentParticipants", () => {
     });
     const config: UserConfig = {
       plugins: [
-        { name: "first", api: { "vite/deploymentMetadata": first } } as Plugin,
+        { name: "first", api: first } as Plugin,
         {
           name: "second",
-          api: { "vite/deploymentMetadata": second },
+          api: second,
         } as Plugin,
       ],
     };
 
-    const result = await getViteDeploymentParticipants(config);
-    expect(result).toEqual([first, second]);
-    expect(result[0]).toBe(first);
-    expect(result[1]).toBe(second);
+    const result = await getDeploymentParticipants(config);
+    expect(result).toEqual([first[SCHEMA_KEY], second[SCHEMA_KEY]]);
+    expect(result[0]).toBe(first[SCHEMA_KEY]);
+    expect(result[1]).toBe(second[SCHEMA_KEY]);
   });
 
   test("propagates rejected plugin promises", async () => {
@@ -120,6 +137,6 @@ describe("getViteDeploymentParticipants", () => {
       plugins: [Promise.reject(failure)],
     };
 
-    await expect(getViteDeploymentParticipants(config)).rejects.toBe(failure);
+    await expect(getDeploymentParticipants(config)).rejects.toBe(failure);
   });
 });
