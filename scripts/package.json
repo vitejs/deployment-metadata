@@ -1,0 +1,8 @@
+{
+  "name": "@vitejs/deploy-metadata-scripts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@vitejs/release-scripts": "^1.10.0"
+  }
+}
