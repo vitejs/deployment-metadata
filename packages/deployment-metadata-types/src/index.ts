@@ -10,4 +10,5 @@ export type {
 export type {
   RequestMetadata,
   RequestMetadataCarrier,
+  RequestMetadataEnableOptions,
 } from "../../../metadata/proposed/VDM0001/types.js";
