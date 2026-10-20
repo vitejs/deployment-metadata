@@ -1,0 +1,84 @@
+name: Publish Package
+
+on:
+  push:
+    branches:
+      - main
+      - "v[0-9]*"
+
+permissions: {}
+
+jobs:
+  detect-release:
+    if: github.repository == 'vitejs/deployment-metadata'
+    name: Detect release commit
+    runs-on: ubuntu-slim
+    outputs:
+      package: ${{ steps.detect.outputs.package }}
+      release: ${{ steps.detect.outputs.release }}
+      tag: ${{ steps.detect.outputs.tag }}
+      version: ${{ steps.detect.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: $/.github/actions/setup-repo
+
+      - name: Detect release
+        id: detect
+        run: node scripts/detect-release.ts "$(git log -1 --format=%s)" >> "$GITHUB_OUTPUT"
+
+  publish-release:
+    if: needs.detect-release.outputs.release == 'true'
+    needs: detect-release
+    name: Publish ${{ needs.detect-release.outputs.tag }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    environment: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check release tag
+        env:
+          TAG: ${{ needs.detect-release.outputs.tag }}
+        run: |
+          if git rev-parse --verify --quiet "refs/tags/$TAG"; then
+            echo "Tag $TAG already exists"
+            exit 1
+          fi
+
+      - uses: $/.github/actions/setup-repo
+
+      - name: Publish package
+        env:
+          TAG: ${{ needs.detect-release.outputs.tag }}
+        run: node scripts/publish.ts "$TAG"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NOTES_FILE: ${{ runner.temp }}/release-notes.md
+          PACKAGE: ${{ needs.detect-release.outputs.package }}
+          TAG: ${{ needs.detect-release.outputs.tag }}
+          VERSION: ${{ needs.detect-release.outputs.version }}
+        run: |
+          node scripts/extract-changelog.ts "packages/$PACKAGE/CHANGELOG.md" "$VERSION" > "$NOTES_FILE"
+
+          prerelease=()
+          if [[ "${VERSION%%+*}" == *-* ]]; then
+            prerelease+=(--prerelease)
+          fi
+
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "$TAG" \
+            --notes-file "$NOTES_FILE" \
+            "${prerelease[@]}"
