@@ -20,3 +20,18 @@ const participant: DeploymentParticipant = {
 ```
 
 The package root exports proposals at every maturity stage. Read each export's JSDoc before adopting it: Proposed Standards may change, Draft Standards have implementation feedback, and Finalized Standards have stable interoperable releases.
+
+## Using with `@vitejs/shared-metadata-helper`
+
+The schema key for this types is `vite/deploymentMetadata`.
+
+```ts
+import { DeploymentParticipant } from "@vitejs/deployment-metadata-types";
+import { createSharedMetadataHelpers } from "@vitejs/shared-metadata-helper";
+
+// get the functions for the deployment metadata types
+const {
+  defineSharedMetadataParticipant: defineDeploymentParticipant,
+  getSharedMetadataParticipants: getDeploymentParticipants,
+} = createSharedMetadataHelpers<DeploymentParticipant>("vite/deploymentMetadata");
+```
