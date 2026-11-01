@@ -12,7 +12,7 @@
     "build": "tsdown"
   },
   "devDependencies": {
-    "vite": "^8.3.1"
+    "vite": "^8.3.5"
   },
   "peerDependencies": {
     "vite": "^8.0.0"
