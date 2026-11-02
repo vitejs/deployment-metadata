@@ -4,7 +4,9 @@ description: Setup pnpm and Node.js, install dependencies
 inputs:
   node-version:
     description: Version of Node to use
-    default: 24.x
+  cache:
+    description: Package manager to cache; leave empty to disable caching
+    default: pnpm
 
 runs:
   using: composite
@@ -13,6 +15,8 @@ runs:
     - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version: ${{ inputs.node-version }}
-        cache: pnpm
+        node-version-file: .node-version
+        cache: ${{ inputs.cache }}
+        package-manager-cache: false
     - run: pnpm install --frozen-lockfile
       shell: bash
