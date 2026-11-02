@@ -1,0 +1,23 @@
+.github/actions/setup-repo/action.yaml
+  s_8508c962d92f19::t_7c31bbd00637dc 7-9,18-20
+.github/workflows/preview-release.yml
+  s_8508c962d92f19::t_c2d026a3741134 24,27
+.node-version
+  s_8508c962d92f19::t_c1d042cdaf53c2 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "8ef043cf70ef5bf0be237249b9438a7d5c1d2bc8",
+  "prompts": {},
+  "sessions": {
+    "s_8508c962d92f19": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a19a40-98e3-7161-a942-0df7cece907a",
+        "model": "unknown"
+      },
+      "human_author": "sapphi-red <green@sapphi.red>"
+    }
+  }
+}
