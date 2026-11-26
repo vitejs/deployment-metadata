@@ -2,7 +2,17 @@
   "name": "@vitejs/shared-metadata-helper",
   "version": "0.0.0",
   "description": "Vite participant discovery for shared metadata.",
+  "homepage": "https://github.com/vitejs/deployment-metadata/tree/main/packages/shared-metadata-helper#readme",
+  "bugs": {
+    "url": "https://github.com/vitejs/deployment-metadata/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitejs/deployment-metadata.git",
+    "directory": "packages/shared-metadata-helper"
+  },
+  "funding": "https://github.com/vitejs/vite?sponsor=1",
   "files": [
     "dist"
   ],

@@ -2,7 +2,17 @@
   "name": "@vitejs/deployment-metadata-types",
   "version": "0.0.0",
   "description": "Tool-agnostic types for standardized deployment metadata.",
+  "homepage": "https://github.com/vitejs/deployment-metadata/tree/main/packages/deployment-metadata-types#readme",
+  "bugs": {
+    "url": "https://github.com/vitejs/deployment-metadata/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitejs/deployment-metadata.git",
+    "directory": "packages/deployment-metadata-types"
+  },
+  "funding": "https://github.com/vitejs/vite?sponsor=1",
   "files": [
     "dist"
   ],
