@@ -20,7 +20,8 @@
   "sideEffects": false,
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsdown"
+    "build": "tsdown",
+    "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
     "vite": "^8.3.5"
