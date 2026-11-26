@@ -1,6 +1,6 @@
 {
   "name": "@vitejs/deployment-metadata-types",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Tool-agnostic types for standardized deployment metadata.",
   "homepage": "https://github.com/vitejs/deployment-metadata/tree/main/packages/deployment-metadata-types#readme",
   "bugs": {
