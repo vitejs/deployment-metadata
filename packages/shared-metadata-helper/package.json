@@ -1,6 +1,6 @@
 {
   "name": "@vitejs/shared-metadata-helper",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Vite participant discovery for shared metadata.",
   "homepage": "https://github.com/vitejs/deployment-metadata/tree/main/packages/shared-metadata-helper#readme",
   "bugs": {
