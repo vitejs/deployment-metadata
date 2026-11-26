@@ -2,6 +2,7 @@
   "name": "@vitejs/deployment-metadata-types",
   "version": "0.0.0",
   "description": "Tool-agnostic types for standardized deployment metadata.",
+  "license": "MIT",
   "files": [
     "dist"
   ],
