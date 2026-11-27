@@ -20,7 +20,8 @@
   "sideEffects": false,
   "exports": "./dist/index.js",
   "scripts": {
-    "build": "tsdown"
+    "build": "tsdown",
+    "prepublishOnly": "pnpm run build"
   },
   "engines": {
     "node": ">=22.12.0 || ^24.0.0"
