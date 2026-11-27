@@ -1,3 +1,8 @@
+## <small>[0.1.1](https://github.com/vitejs/deployment-metadata/compare/shared-metadata-helper%400.1.0...shared-metadata-helper%400.1.1) (2026-11-27)</small>
+### Build System
+
+* build packages before publishing ([#36](https://github.com/vitejs/deployment-metadata/issues/36)) ([b93ae30](https://github.com/vitejs/deployment-metadata/commit/b93ae30605e756e65a82413c066aeee34c13e78a))
+
 ## 0.1.0 (2026-11-26)
 ### Miscellaneous Chores
 
